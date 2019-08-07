@@ -53,7 +53,7 @@ $(document).ready(function () {
 
                 setTimeout(() => {
                     $("#alertModal").addClass('d-none')
-                }, 2500);
+                }, 3500);
                 // console.log(response);
             },
             error: function (error){
