@@ -26,15 +26,16 @@ $(document).ready(function () {
             
         }, 500);
         let data = {
+            type:"foto",
             email:$("#email").val(),
-            nombre:$("#nombre").val(),
+            nombre:$("#nombre").val().replace(/ /g, "%20"),
             codigo:$("#codigo").val()
         }
-        let url = "http://somosinflumedia.com/backend/public/api/send?type=foto&email="+data.email+"&nombre="+data.nombre.replace(/ /g, "%20")+"&codigo="+data.codigo;
+        let url = "http://somosinflumedia.com/backend/public/api/send?type=foto&email="+data.email+"&nombre="+data.nombre+"&codigo="+data.codigo;
         // console.log(url);
         $.ajax({
             type: "GET",
-            dataType: "json",
+            async: true,
             url: url,
             success: async function (response) {
                 await cargarCods();
@@ -46,14 +47,17 @@ $(document).ready(function () {
                 $("#email").focus();
 
                 setTimeout(() => {
+                    $("#alertModal").removeClass('d-none')
                     $("#loaderModal").modal('hide');
-                    
                 }, 500);
+
+                setTimeout(() => {
+                    $("#alertModal").addClass('d-none')
+                }, 2500);
                 // console.log(response);
             },
             error: function (error){
                 console.log(error);
-                
             }
         });
     });

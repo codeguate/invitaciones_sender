@@ -36,8 +36,15 @@
             </div>
         
            
-        
-            <button type="butto" id="send" class="btn btn-primary">Submit</button>
+            
+            <div id="alertModal" class="d-none alert alert-success" >
+                <button type="button" class="close" onClick="$('#alertModal').addClass('d-none');">&times;</button>
+                <span id="ErrorMesagge">
+                    Mensaje Enviado
+                </span>
+            </div>
+            
+            <button type="butto" id="send" class="btn btn-primary">Enviar</button>
         </div>
         <div class="d-flex mx-auto" style="width: 307px;height:500px;" >
                 <img id="invitacion" src="http://placehold.it/614X1000?text=X" alt="" class="img-fluid" style="max-height: 100%;">
